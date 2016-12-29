@@ -1,4 +1,4 @@
-SOURCE_BRANCH ?= "R3.0.2.x"
+SOURCE_BRANCH ?= "R3.0.3.x"
 GIT_CONTRAIL_BASE ?= ssh://admin@ci.ccp-poc.cloudlab.cz:29418
 CWD=$(shell pwd)
 
