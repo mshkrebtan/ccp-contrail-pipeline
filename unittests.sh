@@ -36,6 +36,10 @@ wget https://launchpad.net/ubuntu/+archive/primary/+files/python-gevent_1.1.2-1_
 apt-get install python-greenlet python-greenlet-dev
 dpkg -i python-gevent_1.1.2-1_amd64.deb
 
-sudo scons --root=`pwd` --kernel-dir=$KERNELDIR install
-sudo scons -k --root=`pwd` --kernel-dir=$KERNELDIR test
+time sudo scons --root=`pwd` --kernel-dir=$KERNELDIR install
+#export CONTRAIL_BUILD_JOBS=18
+time sudo scons -k --root=`pwd` --kernel-dir=$KERNELDIR test
 
+#copy log files
+mkdir -p logs/"$(date '+%d-%b-%Y')"
+find build/ -name test.log -exec cp --parents --target-directory=logs/"$(date '+%d-%b-%Y')" {} \;
